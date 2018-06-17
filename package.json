@@ -1,0 +1,33 @@
+{
+  "name": "front_ent_ingenia",
+  "version": "1.0.1",
+  "description": "Estructura inicial para todos los proyectos",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fernando Herrera Cervantes",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-jslint": "^1.0.10",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-rename": "^1.2.3",
+    "gulp-stylus": "^2.0.1",
+    "gulp-uglify": "^2.1.2",
+    "jeet": "^6.1.2",
+    "jshint": "^2.9.5",
+    "nib": "^1.1.0",
+    "sync-request": "^3.0.1",
+    "syncy": "^2.2.2"
+  },
+  "dependencies": {}
+}

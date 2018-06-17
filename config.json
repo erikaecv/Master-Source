@@ -1,0 +1,127 @@
+{
+  "name": "Folder Structure",
+  "version": "1.0",
+  "folders": {
+    "dist": {
+      "dev": {
+        "_files": [{"name": "index.html"}],
+        "css":{
+          "_files": [{"name": "style.css"}],
+          "assets":{
+            "backgrounds": "",
+            "fonts": "",
+            "icons": ""
+          }
+        },
+        "images": {
+          "global": ""
+        },
+        "js": {
+          "_files": [{"name": "main.js"}],
+          "components": "",
+          "global": "",
+          "libs": "",
+          "plugins": "",
+          "sections": ""
+        },
+        "sections": ""
+      },
+      "prod": {
+        "_files": [{"name": "index.html"}],
+        "css":{
+          "_files": [{"name": "style.min.css"}],
+          "assets":{
+            "backgrounds": "",
+            "fonts": "",
+            "icons": ""
+          }
+        },
+        "images": {
+          "global": ""
+        },
+        "js": {
+          "_files": [{"name": "main.min.js"}],
+          "components": "",
+          "global": "",
+          "libs": "",
+          "plugins": "",
+          "sections": ""
+        },
+        "sections": ""
+      }
+    },
+    "src": {
+      "html":{
+        "_files": [
+          {"name": "index.pug", "template": ""}
+        ],
+        "config": {
+          "_files": [
+            {"name": "_variables.pug", "template": ""}
+          ]
+        },
+        "mixins": "",
+        "sections": {
+          "_files": [
+            {"name": "toolkit.pug", "template": ""}
+          ]
+        },
+        "template": {
+          "_files": [
+            {"name": "_footer.pug", "template": ""},
+            {"name": "_head.pug", "template": ""},
+            {"name": "_header.pug", "template": ""}
+          ]
+        }
+      },
+      "js": {
+        "_files": [{"name": "main.js"}],
+        "global": "",
+        "libs": "",
+        "plugins": "",
+        "controllers": ""
+      },
+      "css": {
+        "_files": [
+          {"name": "style.styl", "template": ""}
+        ],
+        "config": {
+          "_files": [
+            {"name": "_variables.styl", "template": ""}
+          ]
+        },
+        "base": {
+          "_files": [
+            {"name": "_document.styl", "template": ""}, 
+            {"name": "_embedded.styl", "template": ""}, 
+            {"name": "_sections.styl", "template": ""},
+            {"name": "_grouping.styl", "template": ""},
+            {"name": "_forms.styl", "template": ""},
+            {"name": "_text.styl", "template": ""},
+            {"name": "_table.styl", "template": ""},
+            {"name": "_interactive.styl", "template": ""},
+            {"name": "_links.styl", "template": ""},
+            {"name": "_scripting.styl", "template": ""}
+          ]
+        },
+        "layout":{
+          "_files": [
+            {"name": "_grid.styl", "template": ""}
+          ]
+        },
+        "sections":{
+          "_files": [
+            {"name": "_toolkit.styl", "template": ""}
+          ]
+        },
+        "components": "",
+        "theme": {
+          "_files": [
+            {"name": "_header.styl", "template": ""},
+            {"name": "_footer.styl", "template": ""}
+          ]
+        }
+      }
+    }
+  }
+}
