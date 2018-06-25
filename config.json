@@ -8,7 +8,7 @@
         "css":{
           "_files": [
             {"name": "style.css"},
-            {"name": "style.css", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/dist/dev/css/style-guide.css"}
+            {"name": "style-guide.css", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/dist/dev/css/style-guide.css"}
           ],
           "assets":{
             "backgrounds": "",
