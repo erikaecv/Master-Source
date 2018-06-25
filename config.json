@@ -108,8 +108,7 @@
       },
       "css": {
         "_files": [
-          {"name": "style.styl", "template": "https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/css/style.styl"},
-          {"name": "style-guide.styl", "template": "https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/css/style-guide.styl"}
+          {"name": "style.styl", "template": "https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/css/style.styl"}
         ],
         "config": {
           "_files": [

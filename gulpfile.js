@@ -239,7 +239,6 @@ var _config_templates = {
 var _config_style = {
   base: 'css/',
   main: _SOURCE_FOLDER + 'css/style.styl',
-  toolkit: _SOURCE_FOLDER + 'css/style-guide.styl',
   sections: 'sections',
   globs: 'css/sections/**/*.styl'
 };
@@ -543,17 +542,6 @@ var _compileJS = function(data){
  */
 var _compileStylus = function (data){
   _handlerMessages('stylus',_INFO_MESSAGE);
-
-  // gulp.src(_config_style.toolkit)
-  //     .pipe(plumber())
-  //     .pipe(stylus({ use: [nib(), jeet()]}))
-  //     .pipe( rename(function(path){
-  //       path.basename = path.basename.replace(/_/g,'-');
-  //     }))
-  //     .pipe(autoprefixer({remove: false, browsers: ['last 10 versions','ie 8-9']}))
-  //     .pipe(gulp.dest(_PATHS.DEV + _config_style.base ))
-  //     //.pipe(gulp.dest(_PATHS.DEV + _config_style.base))
-  //     .pipe( browserSync.stream() );
 
   //gulp.src(origin)
   gulp.src(_config_style.main)
