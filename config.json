@@ -6,7 +6,10 @@
       "dev": {
         "_files": [{"name": "index.html"}],
         "css":{
-          "_files": [{"name": "style.css"}],
+          "_files": [
+            {"name": "style.css"},
+            {"name": "style.css", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/dist/dev/css/style-guide.css"}
+          ],
           "assets":{
             "backgrounds": "",
             "fonts": "",
