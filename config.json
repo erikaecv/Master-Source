@@ -94,9 +94,9 @@
         "libs": {
           "_files": [
             {"name": "_alert.js", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/js/libs/_alert.js"},
-            {"name": "_customForm.js", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/js/libs/_customFormjs"},
-            {"name": "_fillViews.js", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/js/libs/_fillViewsjs"},
-            {"name": "_select.js", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/js/libs/_selectjs"},
+            {"name": "_customForm.js", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/js/libs/_customForm.js"},
+            {"name": "_fillViews.js", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/js/libs/_fillViews.js"},
+            {"name": "_select.js", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/js/libs/_select.js"},
             {"name": "_validate.js", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/js/libs/_validate.js"}
           ]
         },
