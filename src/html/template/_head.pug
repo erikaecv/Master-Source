@@ -1,0 +1,69 @@
+head
+	title #{page.title} - #{site.name}
+	meta( charset='utf-8')
+	meta( name='description' content=page.descrip )
+	meta( name='keywords' content=page.keys )
+	meta( name='viewport' content='width.device-width, initial-scale=1, minimum-scale=1, manimum-scale=1' )
+
+	link( rel='canonical' href=site.url )
+	link( rel='shortcut icon' href='favicon.ico' type='image/x-icon' )
+	link( href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700%7CRaleway:300,400,700' rel='stylesheet' type='text/css' )
+
+	
+	- current_profile = CONST_DEV_PROFILE
+	- var urlFolder  = ''
+	- var indice = page.link
+
+	if(indice != 'index.html')
+		- urlFolder = '../'
+
+	//-ESTILOS LIBRERIAS
+	- var libsCss = page.libsCss
+	- var libs_css = {}
+
+	- libs_css['dev'] = []
+	- libs_css['prod'] = []
+
+	if(libsCss)
+		-for(var lib in libsCss)
+			-libs_css['dev'].push('css/libs/'+libsCss[lib]+'.css')
+			-libs_css['prod'].push('css/libs/'+libsCss[lib]+'.min.css')
+
+	if(libsCss)
+		- var total_prints = libs_css[current_profile].length
+		- for(var i = 0; i < total_prints; i++)
+			link(rel='stylesheet' type='text/css' href=urlFolder+libs_css[current_profile][i])
+	
+	//- ESTILOS GLOBALES
+	- var global_css =  {}
+
+	- global_css['dev'] = ['css/style.css']
+	- global_css['prod'] = ['css/style.min.css']
+
+	if global_css
+		- var total_global = global_css[current_profile].length
+		- for(var i = 0; i < total_global; i++)
+			link(rel='stylesheet' type='text/css' href=urlFolder+global_css[current_profile][i])
+
+	//-ESTILOS PRINTS
+	- var printCss = page.print
+	- var print_css = {}
+
+	- print_css['dev'] = []
+	- print_css['prod'] = []
+
+	if(printCss)
+		-for(var print in printCss)
+			-print_css['dev'].push('css/'+printCss[print]+'.css')
+			-print_css['prod'].push('css/'+printCss[print]+'.min.css')
+
+	if(printCss)
+		- var total_prints = print_css[current_profile].length
+		- for(var i = 0; i < total_prints; i++)
+			link(rel='stylesheet' type='text/css' media='print' href=urlFolder+print_css[current_profile][i])
+
+
+	
+
+
+	

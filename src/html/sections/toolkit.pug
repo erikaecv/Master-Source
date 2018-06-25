@@ -1,0 +1,283 @@
+//- Variables
+include ../config/_site
+include ../config/_variables
+
+-var page 				= {  }
+
+- page[ 'link' ] 		= 'toolkit.html'
+- page[ 'title' ] 		= 'title'
+- page[ 'descrip' ] 	= 'description'
+- page[ 'keys' ] 		= 'keywords'
+- page[ 'lang' ] 		= 'es'
+- page[ 'responsive' ]	= true
+- page[ 'section' ] 	= [  ] //{'url':'', 'title': ''}
+- page[ 'libsCss']		= [  ]
+- page[ 'plugins']		= [  ]
+- page[ 'js']			= [  ]
+- page[ 'print' ]       = [  ]
+
+//- COLORES
+
+- var Colores = {}
+
+//- COLORES PRIMARIOS - EJ.
+- Colores['primary'] = {}
+-Colores['primary']['@naranja'] = '#ffaa59'
+-Colores['primary']['@marino' ] = '#324d84'
+
+//- COLORES SECUNDARIOS - EJ.
+-Colores['second'] = {}
+-Colores['second']['@white'   ] = '#ffffff'
+-Colores['second']['@black'   ] = '#000000'
+
+//- FUENTES 
+- var Ubuntu = []
+
+- Ubuntu.push({ nombre: 'Ubuntu', peso: '300', weight: '@light' })
+- Ubuntu.push({ nombre: 'Ubuntu', peso: '400', weight: '@normal' })
+- Ubuntu.push({ nombre: 'Ubuntu', peso: '500', weight: '@medium' })
+- Ubuntu.push({ nombre: 'Ubuntu', peso: '700', weight: '@bold' })
+
+- var Raleway = []
+
+- Raleway.push({ nombre: 'Raleway', peso: '300', weight: '@light' })
+- Raleway.push({ nombre: 'Raleway', peso: '400', weight: '@normal' })
+- Raleway.push({ nombre: 'Raleway', peso: '700', weight: '@bold' })
+
+//- ICONOS
+
+- var Iconos = ['demo', 'demo2']
+
+
+doctype
+html
+	head
+		title Guía de estilos
+		meta( http-equiv="Content-Type" content="text/html; charset=utf-8" )
+		link( href='../css/style-guide.css' rel='stylesheet' type='text/css' )
+		link( href='../css/style.css' rel='stylesheet' type='text/css' )
+		link( href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,800' rel='stylesheet' type='text/css' )
+		link( href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700|Raleway:300,400,700" rel='stylesheet' type='text/css' )
+
+
+	body
+		ul.sty-nav
+			li.sty-titulo: h1 Guía de estilos
+			li: a( href='#colores'    ) Colores
+			li: a( href='#tipografia' ) Tipografia
+			li: a( href='#iconos'     ) Iconos
+			li: a( href='#botones'    ) Botones
+			li: a( href='#grid' 	  ) Grid
+			li: a( href='#formulario' ) Formulario
+
+
+
+
+		section#colores.sty-bg.sty-center
+			.sty-holder
+				h2.sty-h2 Colores
+
+				p.sty-p.
+					Colores primarios de la aplicación
+				
+				ul.sty-tarjeta-color
+					for item, i in Colores.primary
+						li
+							span.sty-color( style='background:'+ item )
+							span.sty-color-nombre
+								strong #{i}  
+								|#{item}
+
+
+				
+				p.sty-p.
+					colores secundarios
+				
+				ul.sty-tarjeta-color.small
+					for item, i in Colores.second
+						li
+							span.sty-color( style='background:'+ item )
+							span.sty-color-nombre
+								strong #{i}  
+								|#{item}
+				
+				
+
+
+		section#tipografia
+			.sty-holder
+				h2.sty-h2 Tipografía
+
+				h3.sty-h3 Fuente principal
+				p.sty-p.sty-center
+					|Usada en cabeceras y títulos importantes
+					br
+					|debe usarse en mayúsculas y minúsculas
+				
+				p.sty-p.sty-center
+					|Su peso en uso de titulos debe ser 
+					strong ( font-weight : 600 )
+				
+
+				ul.sty-tarjeta-fuente
+					for item, i in Ubuntu
+						li
+							span.sty-fuente( style='font-family:'+item.nombre + '; font-weight:'+ item.peso ) Aa  
+							span.sty-fuente-nombre
+								strong #{item.nombre} <br>  
+								|#{item.weight} : #{item.peso} 
+					
+	
+				h3.sty-h3.sty-space Fuente Secundaria
+				p.sty-p.sty-center
+					|Usada por defecto en parrafos de texto
+				ul.sty-tarjeta-fuente
+					for item, i in Raleway
+						li
+							span.sty-fuente( style='font-family:'+item.nombre+'; font-weight:'+ item.peso ) Aa  
+							span.sty-fuente-nombre
+								strong #{item.nombre} <br> 
+								|#{item.weight} : #{item.peso}
+
+
+
+
+		section#iconos.sty-bg
+			.sty-holder
+				h2.sty-h2 Iconos
+				h4.sty-h3 .ico
+				ul.sty-ico-list
+					-for(var i=0; i<Iconos.length; i++)
+						li
+							.sty-ico-holder
+								span.sty-ico
+									span.ico(class=Iconos[i])
+							span.sty-ico-name .#{Iconos[i]}
+					
+
+
+		section#botones
+			.sty-holder
+				h2.sty-h2 Botones
+
+				.sty-componente
+					h3.sty-componente-nombre a.btn
+					.sty-componente-ejemplo
+						p.sty-componente-tipo Default
+
+						.sty-ejemplo.sty-center
+							a.btn( href='#' ) Botón principal
+
+					//- .sty-componente-clases
+					//- 	p.sty-p Estados opcionales
+
+					//- 	ul.sty-componente-lista
+					//- 		li
+					//- 			strong.sty-clase .blanco
+								
+					//- 			.sty-btn-status
+					//- 				a.btn.blanco( href='#' ) Boton secundario
+							
+
+				.sty-componente
+					h3.sty-componente-nombre a
+					.sty-componente-ejemplo
+						p.sty-componente-tipo Default
+
+						.sty-ejemplo.sty-center
+							a( href='#' ) Botón principal
+
+					//- .sty-componente-clases
+					//- 	p.sty-p Estados opcionales
+
+					//- 	ul.sty-componente-lista
+					//- 		li
+					//- 			strong.sty-clase .aqua
+								
+					//- 			.sty-btn-status
+					//- 				a.aqua( href='#' ) Boton secundario
+
+				
+
+		.section#grid
+			.sty-holder
+				h2.sty-h2 Grid
+
+				.sty-componente
+					h3.sty-componente-nombre General
+						.sty-componente-ejemplo
+							p.sty-componente-tipo Default
+
+							.sty-ejemplo.sty-center.blocksStyle
+								.block
+									.b-full
+										p .b-full
+
+								.block
+									.b-half
+										p .b-half
+									.b-half
+										p .b-half
+
+								.block
+									.b-1of3
+										p .b-1of3
+									.b-2of3
+										p .b-2of3
+
+								.block
+									.b-1of4
+										p .b-1of4
+									.b-1of4
+										p .b-1of4
+
+									.b-1of4
+										p .b-1of4
+									.b-1of4
+										p .b-1of4
+									
+
+		section#formulario
+			.sty-holder
+				h2.sty-h2 Formulario
+
+				.sty-componente
+					h3.sty-componente-nombre Campos
+						.sty-componente-ejemplo
+							p.sty-componente-tipo Default
+
+							.sty-ejemplo.sty-center
+								form(action='#' method='post' autocomplete='off')
+									fieldset
+										ul.form-list
+											li
+												input(name='' type='text' data-name='Input' value='Input')
+
+											li
+												label
+													input(name='radio' type='radio' data-name='')
+													|Opción 1
+												label
+													input(name='radio' type='radio' data-name='')
+													|Opción 2
+
+											li
+												select#demo(name='algo' data-name='')
+													option(value='') algo
+													option(value='1') Opción 1
+													option(value='2') Opción 2
+													option(value='3') Opción 3
+
+											li
+												label
+													input(name='checkbox' type='checkbox' data-name='')
+													|Opción 1
+												label
+													input(name='checkbox' type='checkbox' data-name='')
+													|Opción 2
+
+		
+
+		#js
+			include ../template/_scripts
+

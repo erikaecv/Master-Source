@@ -11,7 +11,8 @@
             "backgrounds": "",
             "fonts": "",
             "icons": ""
-          }
+          },
+          "libs": []
         },
         "images": {
           "global": ""
@@ -34,7 +35,8 @@
             "backgrounds": "",
             "fonts": "",
             "icons": ""
-          }
+          },
+          "libs": []
         },
         "images": {
           "global": ""
@@ -83,30 +85,35 @@
       },
       "css": {
         "_files": [
-          {"name": "style.styl", "template": ""}
+          {"name": "style.styl", "template": "https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/css/style.styl"}
         ],
         "config": {
           "_files": [
-            {"name": "_variables.styl", "template": ""}
+            {"name": "_variables.styl", "template": "https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/css/config/_variables.styl"}
           ]
         },
         "base": {
           "_files": [
-            {"name": "_document.styl", "template": ""}, 
-            {"name": "_embedded.styl", "template": ""}, 
-            {"name": "_sections.styl", "template": ""},
-            {"name": "_grouping.styl", "template": ""},
-            {"name": "_forms.styl", "template": ""},
+            {"name": "_document.styl", "template": "https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/css/base/_document.styl"}, 
+            {"name": "_embedded.styl", "template": "https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/css/base/_embedded.styl"}, 
+            {"name": "_sections.styl", "template": "https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/css/base/_sections.styl"},
+            {"name": "_grouping.styl", "template": "https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/css/base/_grouping.styl"},
+            {"name": "_forms.styl", "template": "https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/css/base/_forms.styl"},
             {"name": "_text.styl", "template": ""},
             {"name": "_table.styl", "template": ""},
-            {"name": "_interactive.styl", "template": ""},
-            {"name": "_links.styl", "template": ""},
-            {"name": "_scripting.styl", "template": ""}
+            {"name": "_interactive.styl", "template": "https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/css/base/_interactive.styl"},
+            {"name": "_links.styl", "template": "https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/css/base/_links.styl"},
+            {"name": "_scripting.styl", "template": "https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/css/base/_scripting.styl"}
           ]
         },
         "layout":{
           "_files": [
-            {"name": "_grid.styl", "template": ""}
+            {"name": "_grid.styl", "template": "https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/css/layout/_grid.styl"}
+          ]
+        },
+        "libs":{
+          "_files": [
+            {"name": "jquery-ui.styl", "template": ""}
           ]
         },
         "sections":{
@@ -123,5 +130,8 @@
         }
       }
     }
+  },
+  "config_js":{
+    "js/main.js": ["js/libs/_fillViews.js", "js/libs/_alert.js", "js/libs/_select.js", "js/libs/_customForm.js", "js/libs/_validate.js", "js/main.js"]
   }
 }

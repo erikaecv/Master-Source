@@ -1,0 +1,343 @@
+/* - - - - - - - - - - - - -
+ Colores
+- - - - - - - - - - - - - - */
+.sty-tarjeta-color {
+  margin: 40px 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+.sty-tarjeta-color >li {
+  display: inline-block;
+  margin: 10px 4px;
+  width: 140px;
+  border-radius: 6px;
+}
+.sty-tarjeta-color.small >li {
+  width: 120px;
+}
+.sty-tarjeta-color.small .sty-color {
+  height: 100px;
+}
+.sty-color {
+  display: block;
+  height: 140px;
+  border: 1px solid #d9dee4;
+  border-radius: 6px 6px 0 0;
+}
+.sty-color-nombre {
+  display: block;
+  padding: 20px 6px;
+  font-size: 12px;
+  border-radius: 0 0 6px 6px;
+  color: #44596c;
+  background: #fff;
+}
+.sty-color-nombre strong {
+  display: block;
+  padding-bottom: 4px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  color: #44596c;
+  background: #f1f4f5;
+}
+section {
+  padding: 80px 0 80px 60px;
+}
+.sty-h2 {
+  margin: 0 0 60px;
+  font-family: 'Open Sans';
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+}
+.sty-h3 {
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+}
+.sty-space {
+  margin-top: 120px;
+}
+.sty-h:first-child,
+.sty-p:first-child {
+  margin-top: 0;
+}
+.sty-bg {
+  color: #fff;
+  background: #44596c;
+}
+.sty-bg h2,
+.sty-bg h3,
+.sty-bg h4 {
+  color: #fff;
+}
+.sty-bg p {
+  color: #c5d6e0;
+}
+.sty-holder {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 960px;
+}
+.sty-center {
+  text-align: center;
+}
+.sty-nav {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0 20px;
+  width: 100%;
+  text-align: right;
+  background: #44596c;
+  box-sizing: border-box;
+}
+.sty-nav >li {
+  display: inline;
+  margin: 0;
+}
+.sty-nav a {
+  display: inline-block;
+  padding: 0 20px;
+  height: 40px;
+  font-weight: 600;
+  line-height: 40px;
+  text-decoration: none;
+  color: #fff;
+}
+.sty-nav a:hover {
+  color: #44596c;
+  background: #c5d6e0;
+}
+.sty-nav .sty-titulo {
+  float: left;
+}
+.sty-nav h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  color: #fff;
+}
+.sty-componente {
+  margin: 40px 0 20px;
+  text-align: left;
+  color: #44596c;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(68,89,108,0.4);
+  background: #fff;
+}
+.sty-componente p {
+  color: #44596c;
+}
+.sty-componente-nombre {
+  margin: 0;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #44596c !important;
+}
+.sty-componente-ejemplo {
+  clear: both;
+  padding: 10px 20px 30px;
+  border: 1px solid #d9dee4;
+  border-left: none;
+  border-right: none;
+  background: #f1f4f5;
+}
+.sty-componente-ejemplo:after {
+  display: table;
+  content: '';
+  clear: both;
+}
+.sty-componente-tipo {
+  margin: 20px 0 20px;
+  text-transform: uppercase;
+}
+.sty-componente-tipo:first-child {
+  margin-top: 0;
+}
+.sty-componente-codigo {
+  padding: 20px;
+}
+.sty-hrule {
+  margin: 30px 0;
+  border: none;
+  height: 2px;
+  background: #d9dee4;
+}
+.sty-hrule.collapse {
+  margin-bottom: 0;
+}
+.sty-code {
+  padding: 0 20px;
+}
+code {
+  color: #2a94d6;
+}
+code .sty-tab {
+  padding-left: 30px;
+}
+code .sty-tab-2 {
+  padding-left: 40px;
+}
+code .sty-tab-3 {
+  padding-left: 60px;
+}
+code .sty-tab-4 {
+  padding-left: 80px;
+}
+code .sty-tab-5 {
+  padding-left: 100px;
+}
+code .sty-tab-6 {
+  padding-left: 120px;
+}
+code .sty-tab-7 {
+  padding-left: 140px;
+}
+code .sty-tab-8 {
+  padding-left: 160px;
+}
+code .sty-tab-9 {
+  padding-left: 180px;
+}
+code .sty-tab-10 {
+  padding-left: 200px;
+}
+.sty-componente-clases {
+  margin: 6px 0 20px;
+  padding: 20px 20px;
+  color: #44596c;
+  border-radius: 6px;
+  background: #fff;
+}
+.sty-componente-clases p {
+  color: #44596c;
+}
+.sty-componente-lista {
+  display: block;
+  margin: 20px 0;
+}
+.sty-componente-lista >li {
+  display: block;
+  clear: both;
+  margin: 0;
+  padding: 20px 0;
+  border-top: 1px solid #f1f4f5;
+}
+.sty-componente-lista >li:first-child {
+  border: none;
+}
+.sty-componente-lista .sty-ejemplo {
+  display: inline-block;
+  width: 68%;
+}
+.sty-clase {
+  display: inline-block;
+  width: 30%;
+}
+.sty-btn-status {
+  display: inline-block;
+  width: 22%;
+}
+.sty-tarjeta-fuente {
+  margin: 40px 0;
+  list-style: none;
+  text-align: center;
+}
+.sty-tarjeta-fuente >li {
+  display: inline-block;
+  margin: 10px 4px;
+  width: 120px;
+  vertical-align: middle;
+}
+.sty-tarjeta-fuente >li.separador {
+  margin: 0 20px;
+  width: 0;
+  height: 160px;
+  border-left: 1px dashed #c5d6e0;
+}
+.sty-tarjeta-fuente >li.separador-h {
+  display: block;
+  margin: 20px auto;
+  width: 40%;
+  height: 0;
+  border-top: 1px dashed #c5d6e0;
+}
+.sty-tarjeta-fuente .sty-fuente {
+  display: block;
+  height: 120px;
+  font-size: 40px;
+  text-align: center;
+  line-height: 120px;
+  color: #44596c;
+  border-radius: 6px 6px 0 0;
+  background: #fff;
+}
+.sty-tarjeta-fuente .sty-fuente-nombre {
+  display: block;
+  padding: 20px 6px;
+  border-top: 1px solid #d9dee4;
+  border-radius: 0 0 6px 6px;
+  color: #44596c;
+  background: #fff;
+}
+.sty-ico-list {
+  margin: 40px 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+.sty-ico-list >li {
+  display: inline-block;
+  margin: 10px 4px 20px;
+  width: 140px;
+}
+.sty-ico-list >li >div >span {
+  margin: 0 auto;
+}
+.sty-ico-holder {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  vertical-align: middle;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.1);
+}
+.sty-ico {
+  vertical-align: middle;
+}
+.sty-ico-name {
+  display: block;
+  padding-top: 6px;
+  font-size: 14px;
+  color: #c5d6e0;
+}
+.blocksStyle .block {
+  overflow: hidden;
+  padding: 10px;
+  background: rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+}
+.blocksStyle .block >div {
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+  position: relative;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.blocksStyle p {
+  margin: 0;
+  color: #fff;
+  padding: 30px 0;
+}

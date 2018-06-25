@@ -1,0 +1,352 @@
+siteW = 960px
+
+/* - - - - - - - - - - - - -
+ Colores
+- - - - - - - - - - - - - - */
+sty-gray_1 = #f1f4f5
+sty-gray_2 = #D9DEE4
+sty-gray_3 = #C5D6E0
+sty-gray_4 = #44596c
+
+sty-blue_1 = #aad0e9
+sty-blue_2 = #2a94d6
+sty-blue_3 = #0b6196
+
+
+.sty-tarjeta-color
+	margin  40px 0
+	padding 0
+	list-style none
+	text-align center
+	
+	>li
+		display inline-block
+		margin  10px 4px
+		width   140px
+		border-radius 6px
+	
+	&.small
+		>li
+			width 120px
+		
+		.sty-color
+			height 100px
+	
+.sty-color
+	display block
+	height 140px
+	border 1px solid sty-gray_2
+	border-radius 6px 6px 0 0
+
+.sty-color-nombre
+	display block
+	padding 20px 6px
+	font-size 12px
+	border-radius 0 0 6px 6px
+	color sty-gray_4
+	background #fff
+
+	strong
+		display block
+		padding-bottom 4px
+		
+
+
+body
+	margin  0
+	padding 0
+	font-family 'Open Sans'
+	font-size 14px
+	color sty-gray_4
+	background sty-gray_1
+	
+
+section
+	padding 80px 0 80px 60px
+
+.sty-h2
+	margin 0 0 60px
+	font-family 'Open Sans'
+	font-size 28px
+	font-weight 600
+	text-align center
+	
+
+.sty-h3
+	font-size 20px
+	font-weight 400
+	text-align center
+
+
+.sty-space
+	margin-top 120px
+	
+.sty-h
+.sty-p
+	&:first-child
+		margin-top 0
+
+.sty-bg
+	color #fff
+	background sty-gray_4
+	
+	h2
+	h3
+	h4
+		color #fff
+	
+	p
+		color sty-gray_3
+
+.sty-holder
+	margin  0 auto
+	padding 0 20px
+	max-width siteW
+
+
+.sty-center
+	text-align center
+	
+
+//-- NAVEGACION
+.sty-nav
+	position fixed
+	z-index  5
+	top  0
+	left 0
+	margin  0
+	padding 0 20px
+	width 100%
+	text-align right
+	background sty-gray_4
+	box-sizing border-box
+	
+	>li
+		display inline
+		margin 0
+	
+	a
+		display inline-block
+		padding 0 20px
+		height 40px
+		font-weight 600
+		line-height 40px
+		text-decoration none
+		color #fff
+		&:hover
+			color sty-gray_4
+			background sty-gray_3
+	
+	.sty-titulo
+		float left
+	
+	h1
+		margin 0
+		padding 0
+		font-size 20px
+		font-weight 400
+		line-height 40px
+		color #fff
+
+
+//-- COMPONENTES
+.sty-componente
+	margin 40px 0 20px
+	text-align left
+	color sty-gray_4
+	border-radius 6px
+	box-shadow 0 0 4px rgba( sty-gray_4, .4 )
+	background #fff
+	
+	p
+		color sty-gray_4
+
+.sty-componente-nombre
+	margin  0
+	padding 10px 20px
+	font-size   20px
+	font-weight 600
+	color sty-gray_4 !important
+
+.sty-componente-ejemplo
+	clear both
+	padding 10px 20px 30px
+	border 1px solid sty-gray_2
+	border-left  none
+	border-right none
+	background sty-gray_1
+	&:after
+		display table
+		content ''
+		clear both
+
+.sty-componente-tipo
+	margin 20px 0 20px
+	text-transform uppercase
+	
+	&:first-child
+		margin-top 0
+
+
+.sty-componente-codigo
+	padding 20px
+
+.sty-hrule
+	margin 30px 0
+	border none	
+	height 2px
+	background sty-gray_2
+	&.collapse
+		margin-bottom 0
+
+
+.sty-code
+	padding 0 20px
+
+code
+	color sty-blue_2
+	.sty-tab
+		padding-left 30px
+	
+	for num in 2..10
+		.sty-tab-{num}
+			padding-left  num*20 px
+			
+
+.sty-componente-clases
+	margin 6px 0 20px
+	padding 20px 20px
+	color sty-gray_4
+	border-radius 6px
+	background #fff
+	p
+		color sty-gray_4
+
+
+
+.sty-componente-lista
+	display block
+	margin 20px 0
+	
+	>li
+		display block
+		clear: both
+		margin 0
+		padding 20px 0
+		border-top 1px solid sty-gray_1
+		
+		&:first-child
+			border none
+	
+	.sty-ejemplo
+		display inline-block
+		width 68%
+	
+.sty-clase
+	display inline-block
+	width 30%
+
+.sty-btn-status
+	display inline-block
+	width 22%
+	
+
+
+.sty-tarjeta-fuente
+	margin 40px 0
+	list-style none
+	text-align center
+	
+	>li
+		display inline-block
+		margin 10px 4px
+		width 120px
+		vertical-align middle
+		
+		&.separador
+			margin 0 20px
+			width 0
+			height 160px
+			border-left 1px dashed sty-gray_3
+			
+
+		&.separador-h
+			display block
+			margin 20px auto
+			width 40%
+			height 0
+			border-top 1px dashed sty-gray_3
+
+
+		
+	.sty-fuente
+		display block
+		height 120px
+		font-size 40px
+		text-align center
+		line-height 120px
+		color sty-gray_4
+		border-radius 6px 6px 0 0
+		background #fff
+		
+	.sty-fuente-nombre
+		display block
+		padding 20px 6px
+		border-top 1px solid sty-gray_2
+		border-radius 0 0 6px 6px
+		color sty-gray_4
+		background #fff
+
+
+.sty-ico-list
+	margin 40px 0
+	padding 0
+	list-style none
+	text-align center
+	
+	>li
+		display inline-block
+		margin 10px 4px 20px
+		width 140px
+		>div
+			>span
+				margin: 0 auto
+		
+.sty-ico-holder
+	display inline-block
+	width  80px
+	height 80px
+	line-height 80px
+	vertical-align middle
+	border-radius 6px
+	background rgba( #fff, .1 )
+
+.sty-ico
+	vertical-align middle
+	
+.sty-ico-name
+	display block
+	padding-top 6px
+	font-size 14px
+	color sty-gray_3
+
+.blocksStyle
+	.block
+		overflow hidden
+		padding 10px
+		background rgba(black, 0.5)
+		margin-bottom 20px
+		>div
+			height 100%
+			background rgba(black, 0.2)
+			position relative
+			margin-top 5px
+			margin-bottom 5px
+	p
+		margin 0
+		color white
+		padding 30px 0
+			
+
+
+

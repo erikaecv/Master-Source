@@ -1,0 +1,8 @@
+mixin _breadcrumbs
+	-var migas = page.section
+	ul.breadcrumbs
+		li: a.bread-home( href=site.home ) Inicio #[span &gt;]
+		-if(migas)
+			-for(miga in migas)
+				li: a( href=migas[miga].url ) #{migas[miga].title}
+		li: span #{page.title}

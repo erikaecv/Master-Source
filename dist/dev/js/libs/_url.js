@@ -5,9 +5,8 @@
 	*/
 (function(){
 	var init = function(){
-		var msjConf = 'Instalación correcta de main.js';
-		console.info(msjConf);
+		var algo = 'Instalación correcta de _url.js, concatenado';
+		console.info(algo);
 	};
-
 	init();
 })();

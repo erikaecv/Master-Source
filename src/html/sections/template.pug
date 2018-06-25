@@ -1,16 +1,16 @@
 //- Variables
-include config/_site
-include config/_variables
+include ../config/_site
+include ../config/_variables
 
 -var page 				= {  }
 
-- page[ 'link' ] 		= 'index.html'
+- page[ 'link' ] 		= 'template.html'
 - page[ 'title' ] 		= 'title'
 - page[ 'descrip' ] 	= 'description'
 - page[ 'keys' ] 		= 'keywords'
 - page[ 'lang' ] 		= 'es'
 - page[ 'responsive' ]	= true
-- page[ 'section' ] 	= [  ]
+- page[ 'section' ] 	= [  ] //{'url':'', 'title': ''}
 - page[ 'libsCss']		= [  ]
 - page[ 'plugins']		= [  ]
 - page[ 'js']			= [  ]
@@ -19,15 +19,18 @@ include config/_variables
 
 doctype
 html(lang=page.lang)
-	include template/_head
+	include ../template/_head
 	body
 		.page
-			include template/_header
+			include ../template/_header
 
-
+			h1 demo
+			h2 subtítulo
 			
+			// +_breadcrumbs
 
-			include template/_footer
+
+			include ../template/_footer
 		
 		#js
-			include template/_scripts
+			include ../template/_scripts

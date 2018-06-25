@@ -1,0 +1,910 @@
+
+a
+	color green
+	font-weight 500
+	text-decoration none
+	transition 0.6s all ease
+	&:hover
+		color blue
+
+
+label
+	[type=checkbox],
+	[type=radio]
+		display inline-block
+		margin-right 14px
+
+body
+	font-family 'Helvetica'
+	font-size 16px
+	font-weight 500
+	margin 0 auto
+
+h1
+	font-size 34px
+	margin 30px auto
+
+h2
+	font-size 28px
+	margin 0
+
+h3, h4
+	font-size 20px
+
+hr
+	clear both;
+	border 0
+	border-top 1px solid gray
+	border-radius 0
+	margin 30px 0
+
+//- - - - - - - - - - - - - - - - - - - - - - - -
+//- Elementos del formulario
+//- - - - - - - - - - - - - - - - - - - - - - - -
+
+fieldset
+	margin  60px 0 0
+	padding 0
+	border none
+	&:first-child
+		margin-top 0
+
+.section-container
+	margin  0 auto
+	max-width  1200px
+
+
+.form-list
+	reset-list()
+	display block
+	margin 30px 0 10px -2% !important
+	padding-left 0
+	list-style none
+	font-size 0
+	
+	.form-list
+		margin-top 0 !important
+		margin-bottom 0 !important
+	&.full
+		margin-left 0 !important
+		padding 0
+		>li
+			display block
+			margin-left 0
+			width auto
+		.hintTip
+			display block
+		.currentInput
+			.datepicker
+				width 95% !important
+			textarea
+				width 100%
+	
+	&.compact
+		>li
+			margin-bottom 8px
+	
+	&.four
+		>li
+			width 23%
+			
+	&.center
+		text-align center
+		
+	&.inline
+		margin-left 0 !important
+		>li 
+			display inline-block
+			margin-left 20px
+			width auto
+			vertical-align bottom	
+			&:first-child
+				margin-left 0
+
+	[type=text]
+	[type=password]
+	[type=email]
+		display block
+		width 100%
+		box-sizing border-box
+		
+	>li
+		display inline-block
+		margin 0 0 20px 2%
+		width 48%
+		font-size 14px
+		vertical-align top
+
+		&.full
+			display block
+			width   auto
+		&.margin
+			margin-right 50px
+		.currentInput
+			&:nth-child(2)
+				margin-top 50px;
+		&.doble
+			>.currentInput
+				col(1/2)
+				margin-top:0
+			
+
+input
+	outline  none
+	&[type=text],
+	&[type=password],
+	&[type=email]
+		color  black
+		background transparent
+		border:0
+		border-bottom  1px solid black
+		box-sizing  border-box
+		font-size  14px
+		vertical-align  middle
+		//-min-width  160px
+		padding  10px 0
+
+		&:focus
+			color  gray
+
+		&.error
+			border-color red
+			color red
+		
+		&.disabled
+		&:disabled
+			color black !important
+			-webkit-text-fill-color black
+			border-bottom 1px dashed black
+		
+		&.full
+			width:100%
+		
+		&.small
+			width:100px
+		
+		&.mini
+			width 50px
+		
+	
+	&[type=radio]
+		position relative
+		margin-right 6px
+		&:after
+			background #fff
+			border 3px solid #fff
+			border-radius 20px
+			box-shadow 0 0 0px 1px black
+			content ''
+			display block
+			height 10px
+			left -2px
+			position absolute
+			top -2px
+			width  10px
+		
+		&:checked
+			&:after
+				background-color darkgray
+			
+		
+		&:disabled
+			&:after
+				box-shadow 0 0 0 1px lightgray
+				border 3px solid lightgray
+				background lightgray
+			
+			&:checked
+				&:after
+					//background-color lightgray
+					background-color lightgray
+				
+			
+		
+		&.error
+			&:after
+				box-shadow 0 0 0 1px red
+				border 3px solid lightgray
+				background lightgray
+			
+		
+	
+	&[type=checkbox]
+		@extend input[type=radio]
+		&:after
+			border-radius 2px
+		
+		&:checked
+			&:after
+				background darkgray
+			
+		&:disabled
+			&:checked
+				&:after
+					background-color lightgray
+	&.noLabel
+		margin-bottom 10px
+
+.lbRd
+	position relative
+	margin-right 25px
+	.flCh
+		position absolute
+		background #fff
+		border 3px solid #fff
+		border-radius 20px
+		box-shadow 0 0 0px 1px black
+		content ''
+		display block
+		height 10px
+		left -20px
+		position absolute
+		top 0
+		width  10px
+	:checked 
+		& + .flCh
+			background darkgray
+	
+	:disabled
+		& + .flCh
+			box-shadow 0 0 0 1px lightgray
+			border 3px solid lightgray
+			background lightgray
+		
+		&:checked
+			& + .flCh
+				//background-color lightgray
+				background-color lightgray
+	&.error
+		& + .flCh
+			box-shadow 0 0 0 1px red
+			border 3px solid lightgray
+			background lightgray
+	input
+		&[type=radio]
+			display none
+			&:after,
+			&:before
+				display none
+
+.lbCh
+	position relative
+	margin-right 25px
+	.flCh
+		position absolute
+		background #fff
+		border 3px solid #fff
+		border-radius 2px
+		box-shadow 0 0 0px 1px black
+		content ''
+		display block
+		height 10px
+		left -20px
+		position absolute
+		top 0
+		width  10px
+	:checked 
+		& + .flCh
+			background darkgray
+	
+	:disabled
+		& + .flCh
+			box-shadow 0 0 0 1px lightgray
+			border 3px solid lightgray
+			background lightgray
+		
+		&:checked
+			& + .flCh
+				//background-color lightgray
+				background-color lightgray
+	&.error
+		& + .flCh
+			box-shadow 0 0 0 1px red
+			border 3px solid lightgray
+			background lightgray
+	input
+		&[type=checkbox]
+			display none
+			&:after,
+			&:before
+				display none
+	
+		
+		
+	
+
+textarea
+	@extend input[type=text]
+	padding 10px 10px
+	//-width 300px
+	width:100%
+	height 4em
+	outline none
+	border 1px solid black
+	vertical-align bottom
+	box-sizing border-box
+	background lightgray
+	border:none
+	margin-top:2px
+	&.lineal
+		height 15px
+		resize:none
+	
+	&.medio
+		height 65px
+		resize:none
+	
+	&.full
+		height 130px
+		resize:none
+	
+
+
+.customSelect
+	>.labelFl
+		color black
+		font-size 11px
+		opacity 0
+		position absolute
+		top 50%
+		transition 1s all ease
+		z-index 0
+	
+	&.active
+		.labelFl
+			color darkgray
+			opacity 1
+			top -12px
+		
+	
+	&.listo
+		.labelFl
+			top -12px
+			opacity 1
+		
+	
+	&.loading
+		.customSelect-arrow
+			top    13px
+			width  12px
+			height 12px
+			border 3px solid darkgray
+			border-top-color darkgray
+			border-radius 12px
+			animation rotateplane 1.4s .5s infinite ease-in-out
+
+	&.noLabel
+		margin 10px 0
+
+.currentInput
+	display inline-block
+	margin 10px 0
+	position relative
+	width 100%
+	.currentInput-label
+		color black
+		display block
+		font-size 0
+		left 0
+		opacity 0
+		position absolute
+		text-align left
+		top -12px
+		width 100%
+		
+		animation hintLabel_hide .5s
+	
+	
+	input
+		width 215px
+		&[type=checkbox]
+			margin-top 10px
+			width auto
+	&.activo
+	&.listo
+		.currentInput-label
+			display block
+			top -12px
+			font-size 11px
+			opacity 1
+			
+			animation hintLabel .5s
+	&.activo
+		.currentInput-label
+			color darkgray
+		
+		input
+			border-bottom-color darkgray
+	&.error
+		.currentInput-label
+			color red
+		
+		input
+			border-color red
+
+	.datepicker, .rangeDate
+		display inline-block !important
+		vertical-align bottom !important
+		width 86% !important
+
+
+
+@keyframes hintLabel
+	0%
+		top 0
+		opacity 0
+	
+	100%
+		top -12px
+		opacity 1
+	
+		
+@keyframes hintLabel_hide
+	0%
+		top -12px
+		opacity 1
+		font-size 11px
+	
+	99%
+		top 0
+		opacity 0
+		font-size 11px
+	
+	100%
+		top 0
+		opacity 0
+		font-size 0
+
+.ui-datepicker-year
+	background transparent 
+	border:none
+	color white 
+	font-weight 300
+
+input:focus + label
+	opacity:1
+	top:0
+
+.customSelect
+	background transparent
+	border-bottom 1px solid black
+	box-sizing border-box
+	color black
+	display inline-block
+	font-size 14px
+	margin 0
+	padding 10px 5px
+	position relative
+	text-align left
+	vertical-align middle
+	//max-width 220px
+	width:100%
+	&.open
+		border-radius 4px 4px 0 0 !important
+		.customSelect-label
+			color darkgray
+		
+		.customSelect-arrow
+			transform rotate(-180deg)
+			transition all .4s
+		
+		.customSelect-options
+		.customSelect-filter
+			display block
+	&.error
+		border-bottom 1px solid red
+		.customSelect-label
+			color red
+	&.disabled
+		border-bottom 1px dashed black
+		.customSelect-label
+			color black
+	&.middle
+		width 178px
+		.customSelect-label
+			max-width  148px
+	&.full
+		width 100%
+		.customSelect-label
+			width  100%
+	&.filter
+		.customSelect-options
+			margin-top:53px
+	.currentSelect
+		position absolute
+		width  0
+		height 0
+		overflow hidden
+	
+	.customSelect-arrow
+		display block
+		position absolute
+		right 10px
+		top 20px
+		width  0
+		height 0
+		border 6px solid transparent
+		border-bottom none
+		border-top-color black
+		transition all .4s
+.customSelect-label
+	cursor default
+	display block
+	padding-right 18px
+	font-size 14px
+	font-weight 500
+	vertical-align middle
+	overflow hidden
+
+.customSelect-options
+	box-shadow 0 6px 6px -3px rgba(0,0,0, 0.2)
+	display none
+	left 0
+	max-height 230px
+	//margin-top  -4px
+	overflow auto
+	position absolute
+	top 100%
+	width 100%
+	z-index 3
+	
+	>label
+		background gray
+		color white
+		display block
+		padding 6px 16px
+
+		&:hover
+			color white
+			background black
+			cursor pointer
+		
+		&.active
+			color orange
+		
+		&.selected
+			color darkgray
+
+.customSelect-filter
+	display  none
+	position absolute
+	z-index  4
+	top 100%
+	left 0
+	padding 6px 10px 10px
+	width 100%
+	box-sizing border-box
+	background gray
+	box-shadow 0 6px 12px -6px rgba(0,0,0,0.3)
+
+.customSelect-search
+	margin 0 !important
+	color darkgray !important
+
+
+.customSelect-tagList
+	display block
+	padding 6px 0 0
+
+.customSelect-tag
+	display inline-block
+	margin 0 6px 6px 0
+	padding 9px 12px
+	font-size 13px
+	font-weight 700
+	color #fff
+	background darkgray
+	transition background-color .4s
+	&:after
+		display inline-block
+		content 'x'
+		margin-left 8px
+		width  10px
+		height 9px
+	&:hover
+		background darkgray
+		cursor pointer
+		transition background-color .4s
+.ui-datepicker
+	background lightgray
+	min-width:220px
+	z-index 13 !important
+	.ui-datepicker-title
+		box-sizing:border-box
+		background gray
+		color white
+		height:48px
+		padding:15px 0
+		text-align:center
+	
+	.ui-datepicker-header
+		.ui-corner-all
+			background black
+			font-size:0
+			height:48px
+			position:absolute
+			width 25px
+			&:hover
+				background darkgray
+			
+		
+		.ui-datepicker-next
+			background black
+			position relative
+			right 0
+			&:after
+				content '>'
+				position absolute
+				display block
+				top 0
+				left 0
+			&:hover
+				background-color darkgray
+			
+		
+		.ui-datepicker-prev
+			background black
+			position relative
+			right 0
+			&:after
+				content '<'
+				position absolute
+				display block
+				top 0
+				left 0
+			&:hover
+				background-color darkgray
+				
+	.ui-datepicker-calendar
+		margin:10px auto
+		width:90%
+		th
+			color black
+			font-weight 500
+		
+		td
+			min-width:20px
+			padding:5px 0
+			text-align:center
+			a
+				color black
+				font-size:14px
+				width:20px
+				&:hover
+					color:darkgray
+
+//- - - - - - - - - - - - - - - - - - - - - - - -
+//- BOTONES
+//- - - - - - - - - - - - - - - - - - - - - - - -
+.btn
+	background black
+	border-radius0
+	border 1px solid black
+	color white
+	display inline-block
+	font-size 13px
+	font-weight 500
+	padding 10px 15px
+	text-transform uppercase
+	transition 1s all ease
+	cursor pointer
+	&:hover
+		background white
+		color black
+
+//- - - - - - - - - - - - - - - - - - - - - - - -
+//- GRID
+//- - - - - - - - - - - - - - - - - - - - - - - -
+.block
+	overflow hidden
+	.b-full
+		stack()
+	.b-half
+		col(1/2)
+	.b-2of3
+		col(2/3)
+	.b-1of3
+		col(1/3)
+	.b-1of4
+		col(1/4)
+
+
+//- - - - - - - - - - - - - - - - - - - - - - - -
+//- HINT-TIP
+//- - - - - - - - - - - - - - - - - - - - - - - -
+
+.hintTip
+	display block
+	position  relative
+	vertical-align  middle
+
+	&.error
+		.hintTip-text
+			display block
+		
+		
+		.customSelect
+			margin-bottom 10px
+			border-color red
+			
+			.arrow
+				border-top-color red
+		input
+			border-color red
+
+	.customSelect + .hintTip-text
+		margin-top -10px
+	
+	.hintTip-text
+		background white
+		border-radius 0 0 4px 4px
+		border-top 1px solid red
+		//border-top:0
+		box-sizing border-box 
+		color red
+		cursor default
+		display none
+		margin 0 
+		min-width 100%
+		font-size 13px
+		padding 6px 0
+		text-align right
+		top 100%
+		position absolute
+		//-white-space nowrap
+		z-index 2
+
+
+//- - - - - - - - - - - - - - - - - - - - - - - -
+//- ICONOS
+//- - - - - - - - - - - - - - - - - - - - - - - -
+
+.ico
+	display inline-block
+	width  40px
+	height 40px
+	vertical-align bottom
+	text-align left
+	text-indent -999px
+	background url( @spriteIcos ) no-repeat 0 0
+	overflow hidden
+	&.close
+		background-position  -252px -177px
+		width 16px
+		height  7px
+
+
+/*  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ *	LBOX
+ *  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ */
+#js
+	position absolute
+	z-index  200
+ 	
+
+.Lbox-overlay
+	display block
+	position fixed
+	z-index  200
+	top  0
+	left 0
+	width  100%
+	height 100%
+	text-align center
+	vertical-align middle
+	background-color rgba( gray, 0.75 )
+
+.Lbox-holder
+	width  100%
+	height 100%
+
+.Lbox-cont
+	position relative
+	top 50%
+	margin 0 auto
+	padding 30px
+	max-width 440px
+	max-height 80%
+	border-radius 3px
+	background white
+	box-shadow 0px 0px 16px rgba(black, .3)
+	overflow auto
+	
+	.btn-close
+		display block
+		position absolute
+		top   14px
+		right 14px
+		width  24px
+		height 23px
+		background black no-repeat -331px -92px
+		border-radius 50%
+		&:hover
+			background-position -331px -52px
+			cursor pointer
+	
+	.ico-status
+		display none
+		margin 0 auto
+		width  43px
+		height 46px
+		bg-sprite -538px -122px
+		
+		&.error
+			width  73px
+			height 47px
+			background-position -453px -121px
+		&.success
+			width  43px
+			height 46px
+			background-position -538px -122px
+
+.Lbox-title
+	margin 24px 0 10px
+	font-size 30px
+	color black
+	
+.Lbox-desc
+	background-color white
+	width 60%
+	margin 20px auto
+	padding 10px
+	
+
+.Lbox-confirm
+	margin 36px 0 0
+	text-align center
+	.btn
+		width 39%
+	.btn-accept
+		margin-left 8%
+
+
+
+/*  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ *	GLOBALES
+ *  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ */
+ 
+.hidden
+	display none
+
+.visible
+	display block
+
+.flLeft
+	float left
+
+.flRight
+	float right
+
+.clBoth
+	clear both
+	
+.a-center
+	text-align center
+
+.a-left
+	text-align left
+
+.a-right
+	text-align right
+
+
+@media (max-width: 780px)
+	.block
+		.b-1of4
+			col(1/2, cycle:2)
+
+@media (max-width: 560px)
+	.block
+		.b-full,
+		.b-half,
+		.b-2of3,
+		.b-1of3,
+		.b-1of4
+			stack()
+	
+
+

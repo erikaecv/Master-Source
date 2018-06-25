@@ -182,7 +182,7 @@ const _EXTENSIONS = {
     *@global
   */
   HTML: '.pug',
-  CSS: '.stylus',
+  CSS: '.styl',
   JS: '.js'
 };
 /*
@@ -238,9 +238,11 @@ var _config_templates = {
 */
 var _config_style = {
   base: 'css/',
-  main: _SOURCE_FOLDER + 'css/style.stylus',
-  globs: 'css/*.stylus'
+  main: _SOURCE_FOLDER + 'css/style.styl',
+  sections: 'sections',
+  globs: 'css/sections/**/*.styl'
 };
+
 /**
   * @description Configuración base para los js de producción
   * @type {json}
@@ -491,8 +493,8 @@ var _compileJS = function(data){
       .pipe(gulp.dest(dest_dev))
       .pipe(jshint())
       .pipe(jshint.reporter(stylish))
-      .pipe(jslint({indent:2}))
-      .pipe(jslint.reporter('stylish'));
+      //.pipe(jslint({indent:2}))
+      //.pipe(jslint.reporter('stylish'));
 
     gulp.src(config_prod.files)
         .pipe(concat(config_prod.name))
@@ -504,8 +506,8 @@ var _compileJS = function(data){
       .pipe(gulp.dest(dest_dev))
       .pipe(jshint())
       .pipe(jshint.reporter(stylish))
-      .pipe(jslint({indent:2}))
-      .pipe(jslint.reporter('stylish'));
+      //.pipe(jslint({indent:2}))
+      //.pipe(jslint.reporter('stylish'));
   }
 
   if (config_prod){ //Concantena y minifica
@@ -539,23 +541,11 @@ var _compileJS = function(data){
  * @param {object} data Configuración del archivo origen que sufrió un cambio
  */
 var _compileStylus = function (data){
-
-  var prefix = data.file.substring(0,1),
-      origin, dest_dev, dest_prod;
-
-  //En caso de no tener prefijo
-  //se compila el archivo modificado
-  if ( prefix !== _FILE_PREFIX){
-    origin = 'src/css/' + data.file;
-  }
-  else{
-    origin = _SOURCE_FOLDER + _config_style.globs;
-  }
   _handlerMessages('stylus',_INFO_MESSAGE);
-  //gulp.src(_config_style.main)
-  gulp.src(origin)
+  //gulp.src(origin)
+  gulp.src(_config_style.main)
       .pipe(plumber())
-      .pipe(stylus({ use: [nib(), jeet()], compress:true}))
+      .pipe(stylus({ use: [nib(), jeet()]}))
       .pipe( rename(function(path){
         path.basename = path.basename.replace(/_/g,'-');
       }))
@@ -564,8 +554,8 @@ var _compileStylus = function (data){
       //.pipe(gulp.dest(_PATHS.DEV + _config_style.base))
       .pipe( browserSync.stream() );
 
-  //gulp.src(_config_style.main)
-  gulp.src(origin)
+  //gulp.src(origin)
+  gulp.src(_config_style.main)
       .pipe( plumber() )
       .pipe(stylus({ use: [nib(), jeet()], compress:true}))
       .pipe(clean_css({compatibility: 'ie8'}))
