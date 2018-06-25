@@ -55,7 +55,7 @@
     "src": {
       "html":{
         "_files": [
-          {"name": "index.pug", "template": ""}
+          {"name": "index.pug", "template": "https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/html/index.pug"}
         ],
         "config": {
           "_files": [
@@ -85,8 +85,17 @@
       },
       "js": {
         "_files": [{"name": "main.js"}],
-        "global": "",
-        "libs": "",
+        "global": [
+          {"name": "jquery-ui.js", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/js/global/jquery-ui.js"},
+          {"name": "jquery.js", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/js/global/jquery.js"}
+        ],
+        "libs": [
+          {"name": "_alert.js", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/js/libs/_alert.js"},
+          {"name": "_customForm.js", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/js/libs/_customFormjs"},
+          {"name": "_fillViews.js", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/js/libs/_fillViewsjs"},
+          {"name": "_select.js", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/js/libs/_selectjs"},
+          {"name": "_validate.js", "template":"https://raw.githubusercontent.com/erikaecv/Master-Source/master/src/js/libs/_validate.js"}
+        ],
         "plugins": "",
         "controllers": ""
       },
