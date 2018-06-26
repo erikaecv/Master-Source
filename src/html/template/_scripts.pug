@@ -10,13 +10,15 @@ if(indice != 'index.html')
 
 - var section_scripts =  {}
 
-- section_scripts['dev'] = ['js/global/jquery.js', 'js/global/jquery-ui.js', 'js/main.js']
-- section_scripts['prod'] = ['js/global/jquery.min.js', 'js/global/jquery-ui.min.js', 'js/main.min.js']
+- section_scripts['dev'] = ['js/global/jquery.js', 'js/global/jquery-ui.js']
+- section_scripts['prod'] = ['js/global/jquery.min.js', 'js/global/jquery-ui.min.js']
 
 if section_scripts
 	- var total_scripts = section_scripts[current_profile].length
 	- for(var i = 0; i < total_scripts; i++)
 		script(src=urlFolder+section_scripts[current_profile][i])
+
+
 
 
 //- PLUGINS
@@ -36,6 +38,16 @@ if plugins_scripts
 	- var total_plugins = plugins_scripts[current_profile].length
 	- for(var i = 0; i < total_plugins; i++)
 		script(src=urlFolder+plugins_scripts[current_profile][i])
+
+//- MI SCRIPT GLOBAL
+
+- var mi_scripts =  {}
+
+- mi_scripts['dev'] = ['js/main.js']
+- mi_scripts['prod'] = ['js/main.min.js']
+
+if mi_scripts
+	script(src=urlFolder+mi_scripts[current_profile])
 
 //- CONTROLADORES
 
