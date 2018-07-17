@@ -6,8 +6,10 @@ fillView = function(options){
 		},options),
 		regX = /[\{\{\}\}]*/g, //  /[\[\]]*/g
 		data = config.data,
-		tmpView = config.view,
-		arr = config.view.match( /\{\{([^ \{\}])+\}\}/g ),  // /\[([^ \[\]\{\}])+\]/g
+		//tmpView = config.view,
+		//arr = config.view.match( /\{\{([^ \{\}])+\}\}/g ),  // /\[([^ \[\]\{\}])+\]/g
+		tmpView = config.view[0].innerHTML,
+		arr = tmpView.match( /\{\{([^ \{\}])+\}\}/g ),  // /\[([^ \[\]\{\}])+\]/g
 		opt = config.opt,
 		txt = '';
 
@@ -1047,7 +1049,7 @@ customFields = (function(){
 
 //alert(123);
 
-///- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+///- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 //-NUEVO
 var
 placeholders = (function(){
@@ -1076,7 +1078,7 @@ placeholders = (function(){
 
 		$('body').on('focusin', fields, function(e){
 			var that = $( this );
-			
+
 			if( that.attr( 'data-name' ) == undefined ){
 				that.attr( 'data-name' ) = that.val();
 			}
@@ -1115,6 +1117,9 @@ valForm = (function(){
 	var
 	ui_Form = {
 		fields : 'textarea, [type=text], [type=email], [type=password], [type=email]',
+		checks: '[type=radio], [type=checkbox]',
+		selects: 'select',
+
 
 		messages : {
 
@@ -1144,7 +1149,7 @@ valForm = (function(){
 				tel      : 'Invalid Phone number'
 			}
 		},
-		
+
 		config : {
 			tips : true
 		}
@@ -1201,7 +1206,7 @@ valForm = (function(){
 		}catch(err){
 			message = _messages.defaults[ classe ];
 		}
-		
+
 		if( message == undefined ){
 
 			if( item.hasClass('required') ){
@@ -1216,10 +1221,11 @@ valForm = (function(){
 			}
 		}
 
-		
+
 		if( !item.parent().hasClass('hintTip') ){
 			item.wrap( '<span class="hintTip error" />' );
 			item.parent().append( '<span class="hintTip-text" >'+ message +'</span>' );
+
 			/* PROYECTO: MAS SALUD */
 			var fechaIco = item.parents('form').find('.hasDatepicker'),
 				icoCal;
@@ -1239,7 +1245,7 @@ valForm = (function(){
 			focusItem = item;
 			item.trigger('focus');
 		}
-		
+
 		send = false;
 	};
 
@@ -1249,7 +1255,7 @@ valForm = (function(){
 	//- - - - - - - - - - - -
 	var
 	_namespace = {
-		
+
 		messages : function( options ){
 			var
 			_messages =  ui_Form.messages;
@@ -1294,8 +1300,8 @@ valForm = (function(){
 			);
 
 			//- - - - - - - - - - - -
-			//- INPUT and SUBMIT 
-			//- - - - - - - - - - - - 
+			//- INPUT and SUBMIT
+			//- - - - - - - - - - - -
 			var
 			_startEvents = function(){
 				if( !_opt.form ){
@@ -1306,17 +1312,17 @@ valForm = (function(){
 
 				//- - - - - - - - - - - -
 				//- PREVENT NUMBERS
-				//- - - - - - - - - - - - 
+				//- - - - - - - - - - - -
 				_opt.form.on( 'keydown', ui_Form.fields, function(e){
 					var
 					item = $(this);
-					
+
 					if( item.hasClass('noNumbers') ){
 						if( e.keyCode > 47 && e.keyCode < 58 ){
 							e.preventDefault();
 						}
 					}
-					
+
 					if( item.hasClass('onlyNumbers') ){
 						//96 105
 						//47 58
@@ -1328,7 +1334,7 @@ valForm = (function(){
 						if( e.keyCode >= 58 && e.keyCode <=95 ){
 							e.preventDefault();
 						}
-							
+
 
 						// if( e.keyCode <= 47 || e.keyCode >= 58 ){
 						// 	if( e.keyCode !== 8 && e.keyCode !== 190 ){
@@ -1340,30 +1346,59 @@ valForm = (function(){
 
 				//- - - - - - - - - - - -
 				//- CHECK FIELDS
-				//- - - - - - - - - - - - 
+				//- - - - - - - - - - - -
 				_opt.form.on( 'keyup', ui_Form.fields, function(e){
 					var
 					item = $(this),
 					valueType = _getValueType( item );
 
-					if( valueType.length > 0 || item.attr('data-confirm') !== undefined ){
-						_validateFields( item  );
-					}
+					_validateFields( item  );
+					// if( valueType.length > 0 || item.attr('data-confirm') !== undefined ){
+					// 	_validateFields( item  );
+					// }
 				});
 
 				//- - - - - - - - - - - -
+				//- CUSTOM SELECT
+				//- - - - - - - - - - - -
+				_opt.form.on( 'change', ui_Form.selects, function(e){
+					var
+					item = $(this),
+					valueType = _getValueType( item );
+
+					_validateFields( item, 'select'  );
+					// if( valueType.length > 0 || item.attr('data-confirm') !== undefined ){
+					// 	_validateFields( item  );
+					// }
+				});
+				// $(item.closest('.hintTip')).removeClass('error');
+
+				//- - - - - - - - - - - -
+				//- CHECKBOX & RADIOS
+				//- - - - - - - - - - - -
+				_opt.form.on( 'change', ui_Form.checks, function(e){
+					var
+					item = $(this),
+					valueType = _getValueType( item );
+
+					_validateFields( item, 'checks' );
+					// if( valueType.length > 0 || item.attr('data-confirm') !== undefined ){
+					// 	_validateFields( item  );
+					// }
+				});
+				//- - - - - - - - - - - -
 				//- CHECK FULL FORM
-				//- - - - - - - - - - - - 
+				//- - - - - - - - - - - -
 				_opt.form.on( 'submit', function(e){
 					e.preventDefault();
 					_validateForm();
 				});
-			
+
 			};
 
 			//- - - - - - - - - - - -
 			//- Return the "class" to evaluate
-			//- - - - - - - - - - - - 
+			//- - - - - - - - - - - -
 			var
 			_getValueType = function( item ){
 				var
@@ -1377,11 +1412,11 @@ valForm = (function(){
 
 				return classes;
 			};
-			
+
 			//- - - - - - - - - - - -
 			//- VALIDATE FIELDS
 			//-	* defined in ui_Form.fields
-			//- - - - - - - - - - - - 
+			//- - - - - - - - - - - -
 			var
 			_validateFields = function( item, classes  ){
 				var
@@ -1390,7 +1425,23 @@ valForm = (function(){
 				dataConfirm = item.attr('data-confirm'),
 				confirmValue;
 
-				if( valueType.length == 0 ){
+				if(valueType == 'select'){
+					if(item.val() != ''){
+						item.parents('.hintTip').removeClass('error');
+						return false;
+					} else {
+						item.parents('.hintTip').addClass('error');
+						return false;
+					}
+				} else if(valueType == 'checks'){
+					if(item.is(':checked')){
+						$(item.closest('.hintTip')).removeClass('error');
+						return false;
+					} else{
+						$(item.closest('.hintTip')).addClass('error');
+						return false;
+					}
+				} else if( valueType.length == 0 ){
 					valueType = ['required'];
 				}
 
@@ -1412,7 +1463,7 @@ valForm = (function(){
 							}else{
 								item.parent().removeClass('error');
 							}
-						
+
 						}else{
 
 							if( str.match( valueTypes[valueType[i]].regx ) === null ){
@@ -1433,7 +1484,7 @@ valForm = (function(){
 
 			//- - - - - - - - - - - -
 			//- VALIDATE RADIO / CHECKBOX
-			//- - - - - - - - - - - - 
+			//- - - - - - - - - - - -
 			var
 			_validateOptions = function( item ){
 				if( !item.is(':checked') ){
@@ -1445,7 +1496,7 @@ valForm = (function(){
 
 			//- - - - - - - - - - - -
 			//- VALIDATE GROUPS OF RADIO / CHECKBOX
-			//- - - - - - - - - - - - 
+			//- - - - - - - - - - - -
 			var
 			_validateGroups = function( item ){
 				var
@@ -1461,14 +1512,14 @@ valForm = (function(){
 
 			//- - - - - - - - - - - -
 			//- VALIDATE CUSTOM ELEMENTS
-			//- - - - - - - - - - - - 
+			//- - - - - - - - - - - -
 			var
 			_validateCustom = function( item ){
 				var
 				valueType = _getValueType( item ),
 				label     = item.find('.group-label'),
 				element   = item;
-				
+
 				if( valueTypes[ valueType ].custom( item ) == false ){
 					if( label.length ){
 						element = label;
@@ -1479,7 +1530,7 @@ valForm = (function(){
 
 			//- - - - - - - - - - - -
 			//- VALIDATE CUSTOMSELECT
-			//- - - - - - - - - - - - 
+			//- - - - - - - - - - - -
 			var
 			_validateSelects = function( item ){
 				var
@@ -1494,7 +1545,7 @@ valForm = (function(){
 
 			//- - - - - - - - - - - -
 			//- VALIDATE ON SUBMIT
-			//- - - - - - - - - - - - 
+			//- - - - - - - - - - - -
 			var
 			_validateForm = function( form ){
 				send = true;
@@ -1589,7 +1640,7 @@ valForm = (function(){
 // var
 // validarFecha = function( item ){
 // 	console.info('validando fecha externo');
-	
+
 // 	return false
 // };
 
