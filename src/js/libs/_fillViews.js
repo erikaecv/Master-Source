@@ -9,7 +9,7 @@ fillView = function(options){
 		//tmpView = config.view,
 		//arr = config.view.match( /\{\{([^ \{\}])+\}\}/g ),  // /\[([^ \[\]\{\}])+\]/g
 		tmpView = config.view[0].innerHTML,
-		arr = tmpView.match( /\{\{([^ \{\}])+\}\}/g ),  // /\[([^ \[\]\{\}])+\]/g
+		arr = tmpView.match( /\{\{([^ \{\}])+\}\}/g ),
 		opt = config.opt,
 		txt = '';
 

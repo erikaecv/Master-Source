@@ -18,9 +18,6 @@ if section_scripts
 	- for(var i = 0; i < total_scripts; i++)
 		script(src=urlFolder+section_scripts[current_profile][i])
 
-
-
-
 //- PLUGINS
 
 - var plugins = page.plugins
@@ -39,15 +36,27 @@ if plugins_scripts
 	- for(var i = 0; i < total_plugins; i++)
 		script(src=urlFolder+plugins_scripts[current_profile][i])
 
+
+
 //- MI SCRIPT GLOBAL
+- var globals = site.globals
+- var global_scripts =  {}
 
-- var mi_scripts =  {}
+- global_scripts['dev'] = []
+- global_scripts['prod'] = []
 
-- mi_scripts['dev'] = ['js/main.js']
-- mi_scripts['prod'] = ['js/main.min.js']
+if(globals.length > 0)
+	- for(var i = 0; i < globals.length; i++)
+		- global_scripts['dev'].push('js/'+site.globals[i]+'.js')
+		- global_scripts['prod'].push('js/'+site.globals[i]+'.min.js')
 
-if mi_scripts
-	script(src=urlFolder+mi_scripts[current_profile])
+if global_scripts
+	- var total_globals = global_scripts[current_profile].length
+	- for(var i = 0; i < total_globals; i++)
+		script(src=urlFolder+global_scripts[current_profile][i])
+	//script(src=urlFolder+mi_scripts[current_profile])
+
+
 
 //- CONTROLADORES
 

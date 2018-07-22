@@ -9,7 +9,7 @@ fillView = function(options){
 		//tmpView = config.view,
 		//arr = config.view.match( /\{\{([^ \{\}])+\}\}/g ),  // /\[([^ \[\]\{\}])+\]/g
 		tmpView = config.view[0].innerHTML,
-		arr = tmpView.match( /\{\{([^ \{\}])+\}\}/g ),  // /\[([^ \[\]\{\}])+\]/g
+		arr = tmpView.match( /\{\{([^ \{\}])+\}\}/g ),
 		opt = config.opt,
 		txt = '';
 
@@ -1080,7 +1080,9 @@ placeholders = (function(){
 			var that = $( this );
 
 			if( that.attr( 'data-name' ) == undefined ){
-				that.attr( 'data-name' ) = that.val();
+				//that.attr( 'data-name' ) = that.val();
+				var valueData = that.val();
+				that.attr('data-name', valueData);
 			}
 			if( that.val() == that.attr( 'data-name' )  && that.attr('readonly') == undefined ){
 				that.val('');
@@ -1670,6 +1672,27 @@ valForm = (function(){
 		var msjConf = 'Instalación correcta de main.js';
 		console.info(msjConf);
 	};
+
+	var fillDemo = function(data){
+		console.info(data);
+
+		var info = {},
+			ulDemo = $('#ulDemo'),
+			template = $('#infoForm'),
+			html = ''; 
+
+		info = {
+			nombre: data[0].value,
+			correo: data[1].value
+		}
+
+		html = fillView({
+			data: info,
+			view: template
+		});
+
+		ulDemo.append(html);
+	}
 
 	init();
 })();
