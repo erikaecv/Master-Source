@@ -29,9 +29,8 @@ placeholders = (function(){
 			var that = $( this );
 
 			if( that.attr( 'data-name' ) == undefined ){
-				//that.attr( 'data-name' ) = that.val();
-				var valueData = that.val();
-				that.attr('data-name', valueData);
+				var valueD = that.val();
+				that.attr('data-name', valueD);
 			}
 			if( that.val() == that.attr( 'data-name' )  && that.attr('readonly') == undefined ){
 				that.val('');
@@ -69,6 +68,7 @@ valForm = (function(){
 	ui_Form = {
 		fields : 'textarea, [type=text], [type=email], [type=password], [type=email]',
 		checks: '[type=radio], [type=checkbox]',
+		group: '.group-input input',
 		selects: 'select',
 
 
@@ -175,7 +175,7 @@ valForm = (function(){
 
 		if( !item.parent().hasClass('hintTip') ){
 			item.wrap( '<span class="hintTip error" />' );
-			item.parent().append( '<span class="hintTip-text" >'+ message +'</span>' );
+			// item.parent().append( '<span class="hintTip-text" >'+ message +'</span>' );
 
 			/* PROYECTO: MAS SALUD */
 			var fechaIco = item.parents('form').find('.hasDatepicker'),
@@ -190,7 +190,7 @@ valForm = (function(){
 			/* TERMINA MAS SALUD */
 		}else{
 			item.parent().addClass('error');
-			item.parent().find('> .hintTip-text').html( message );
+			//item.parent().find('> .hintTip-text').html( message );
 		}
 		if( !focusItem ){
 			focusItem = item;
@@ -337,6 +337,22 @@ valForm = (function(){
 					// 	_validateFields( item  );
 					// }
 				});
+
+				//- - - - - - - - - - - -
+				//- CHECKBOX & RADIOS GROUP INPUTS
+				//- - - - - - - - - - - -
+				_opt.form.on( 'change', ui_Form.groups, function(e){
+					var
+					item = $(this),
+					valueType = _getValueType( item );
+
+					_validateGroups( item, 'checks' );
+					// if( valueType.length > 0 || item.attr('data-confirm') !== undefined ){
+					// 	_validateFields( item  );
+					// }
+				});
+
+
 				//- - - - - - - - - - - -
 				//- CHECK FULL FORM
 				//- - - - - - - - - - - -
@@ -456,8 +472,10 @@ valForm = (function(){
 
 				if( !checked.length && item.hasClass('required') ){
 					addMessage( label, 'group' );
+
 				}else{
 					label.closest('.hintTip').removeClass('error');
+					
 				}
 			};
 

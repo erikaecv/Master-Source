@@ -3,7 +3,7 @@
 var Alert = ( function(  ){
 
   var
-  _el,          
+  _el,
   _opt = {  },
   _closeEvent = {  },
   _redirectEvent = {  },
@@ -14,9 +14,9 @@ var Alert = ( function(  ){
     fillMessage : function( options ){
       var
       html = '';
-      
+
       if( typeof options === 'object' ){
-        
+
         html = fillView({ data:options, view: options.view });
       }
 
@@ -24,7 +24,21 @@ var Alert = ( function(  ){
     },
 
     setMessage : function( options ){
-      
+
+      //console.info(options);
+
+      var vista;
+
+      if(options.view != undefined){
+        //console.info('hay');
+        vista = options.view[0].innerHTML;
+      }else{
+        //console.info('no hay');
+        vista = _defaults[ 'view' ];
+      }
+
+      //console.info(vista);
+
       _opt = $.extend(
         {},
          {
@@ -34,13 +48,14 @@ var Alert = ( function(  ){
           type  : options[ 'type' ] || _defaults[ 'type' ],
           title : options[ 'title' ] || _defaults[ 'title' ],
           message : options[ 'message' ] || _defaults[ 'message' ],
-          view  : options[ 'view' ] || _defaults[ 'view' ],
+          //view  : options[ 'view' ] || _defaults[ 'view' ],
+          view : vista,
           onComplete : null,
           onClose : null,
           redirect: null
         },
         options
-        
+
       );
     },
 
@@ -49,25 +64,25 @@ var Alert = ( function(  ){
       var
       element,
       _type = type || 'lbox';
-       
+
       if( typeof _opt !== 'undefined' && typeof _opt.el !== 'undefined'  ){
-        
+
         _target = _opt.target;
 
         if( $( '#'+_opt.el ).length ){
           _el = $( '#'+_opt.el );
-          
+
         }else{
           _el = document.createElement( 'DIV' );
           _el.id = _opt.el;
           _el.className = _opt.classe
           _el = $( _el );
-          
+
 
           if( !$('#'+_target).length ){
             $('#js').append('<div id="'+_target+'"></div>' );
           }
-          
+
           $( '#'+_target ).append( _el );
         }
 
@@ -86,13 +101,13 @@ var Alert = ( function(  ){
         element.off( 'click' );
 
         $(element.find( '.Lbox-cont' )).css({ 'margin-top':  Math.round( ($( element.find( '.Lbox-cont' ) ).height()+ 88 ) / -2) });
-        
+
         if( element.hasClass( 'Lbox' ) && type != 'modal'){
 
           element.on( 'click', '.Lbox-overlay', function( e ){
             var
             that = $( this );
-            
+
             e.stopPropagation(  );
             Alert.close( element );
           });
@@ -102,7 +117,7 @@ var Alert = ( function(  ){
             e.stopPropagation(  );
           });
         }
-        
+
         element.on( 'click', '.btn-close, .lbox-close, .btn-accept, .btn-cancel', function( e ){
           var
           that = $( this ),
@@ -123,7 +138,7 @@ var Alert = ( function(  ){
       _id = element.attr( 'id' );
       element.fadeOut('fast', function() {
         if( _redirectEvent[ _id ] !== null && typeof _redirectEvent[ _id ] === 'string'  ){
-          
+
           window.location = _opt.redirect;
 
         }else{
@@ -131,10 +146,10 @@ var Alert = ( function(  ){
             _closeEvent[ _id ]( status );
           }
         }
-        
+
       });
     }
-  
+
   },
 
   _defaults = {

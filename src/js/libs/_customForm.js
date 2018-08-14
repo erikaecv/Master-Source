@@ -45,7 +45,7 @@
 
 				if($(this).val()== "" || $(this).val() == labelVal){
 					$(wrapI).removeClass('listo activo');
-					
+
 					if($(this).hasClass('password')){
 						var that = $(this);
 						$(that).removeAttr("type").prop('type', 'text');
@@ -77,14 +77,14 @@
 							$(inputsFloat[j]).prev().text($(inputsFloat[j]).data('name'));
 						}
 					}
-				}	
-			}	
+				}
+			}
 		});
 
 		$.fn.extend({
 			updateLabelSelect : function(){
 				$(labelS).prepend('<label class="labelFl"></label>');
-		
+
 				if($(labelS).length){
 					for(s=0; s<labelS.length; s++){
 						$(labelS[s]).find('.labelFl').text($(labelS[s]).find('select').data('name'));
@@ -109,15 +109,15 @@
 var
 customFields = (function(){
 
-	//- - - - - - - - - - - - - - - 
+	//- - - - - - - - - - - - - - -
 	//- EVENTOS
-	//- - - - - - - - - - - - - - - 
+	//- - - - - - - - - - - - - - -
 	var
 	_inputEvents = (function(){
 		var
 		fields = '[type=text], [type=email], [type=password], textarea, select';
 
-		//- - - - - - - - - - - - - - - 
+		//- - - - - - - - - - - - - - -
 		//- Muestra el label
 		$('body').on('focus', fields, function(e){
 			$(this).closest('.currentInput').addClass('activo');
@@ -129,7 +129,7 @@ customFields = (function(){
 		});
 
 
-		//- - - - - - - - - - - - - - - 
+		//- - - - - - - - - - - - - - -
 		//- Muestra / Esconde el label al validar
 		$('body').on('blur', fields, function(e){
 			var
@@ -139,7 +139,7 @@ customFields = (function(){
 			if( that[0].tagName == 'SELECT' ){
 				return false;
 			}
-			
+
 			if( that.val() !== that.attr('data-name') && that.val().length >= 1 ){
 				holder.addClass('listo');
 			}else{
@@ -148,11 +148,11 @@ customFields = (function(){
 					$(that).removeAttr("type").prop('type', 'text');
 				}
 			}
-			
+
 			holder.removeClass('activo');
 		});
 
-		//- - - - - - - - - - - - - - - 
+		//- - - - - - - - - - - - - - -
 		//- .customSelect
 		$('body').on('change', 'select', function(e){
 			var
@@ -169,7 +169,7 @@ customFields = (function(){
 			var
 			that   = $(this),
 			holder = that.closest('.currentInput');
-			
+
 			setTimeout( function(){
 				holder.removeClass('activo');
 			}, 200 );
@@ -180,9 +180,9 @@ customFields = (function(){
 	})();
 
 
-	//- - - - - - - - - - - - - - - 
+	//- - - - - - - - - - - - - - -
 	//- PÚBLICO
-	//- - - - - - - - - - - - - - - 
+	//- - - - - - - - - - - - - - -
 	_namespace = {
 
 		update: function( element ){
@@ -210,15 +210,15 @@ customFields = (function(){
 				wrapper = document.createElement( 'SPAN' ),
 				label   = input.attr('data-name'),
 				status  = '';
-				
-				//- - - - - - - - - - - - - - - 
+
+				//- - - - - - - - - - - - - - -
 				//- Validar si esta lleno
 				if( input.val() != label ){
 					status = ' listo';
 				}
 
 
-				//- - - - - - - - - - - - - - - 
+				//- - - - - - - - - - - - - - -
 				//- Validar si es un customSelect
 				if( input.hasClass('customSelect') ){
 					label = $(input.find('select')).attr('data-name');
@@ -227,7 +227,7 @@ customFields = (function(){
 					}
 				}
 
-				//- - - - - - - - - - - - - - - 
+				//- - - - - - - - - - - - - - -
 				//- Envolver el input
 				wrapper.className = 'currentInput' + status;
 				input.wrap( wrapper );
@@ -264,7 +264,7 @@ customFields = (function(){
 				boxy = document.createElement( 'SPAN' ),
 				clase;
 
-				//- - - - - - - - - - - - - - - 
+				//- - - - - - - - - - - - - - -
 				//- Envolver el input
 				boxy.className = 'flCh';
 				if(input.attr('type') == 'radio'){
@@ -277,7 +277,7 @@ customFields = (function(){
 
 			};
 
-			_init();	
+			_init();
 		}
 
 	};
@@ -287,7 +287,7 @@ customFields = (function(){
 		var inputs = $('.withLabel');
 		//inputs = $( '[type=text], [type=email], textarea, .customSelect' ).not('.noLabel');
 		var checks = $('[type=checkbox], [type=radio]')
-	
+
 		for( var i=inputs.length-1; i>-1; i--  ){
 			_namespace.update(  $(inputs[i])  );
 		}

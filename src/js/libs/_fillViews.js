@@ -1,4 +1,15 @@
 fillView = function(options){
+	
+	var tempVista;
+	if(typeof(options.view) == 'string'){
+		//console.info('del js')
+		tempVista = options.view;
+	}else{
+		tempVista = options.view[0].innerHTML;
+		//console.info('del html')
+	}
+
+
 	var config = $.extend({
 			data:null,
 			view:'<p>Utiliza una vista válida</p>',
@@ -7,9 +18,10 @@ fillView = function(options){
 		regX = /[\{\{\}\}]*/g, //  /[\[\]]*/g
 		data = config.data,
 		//tmpView = config.view,
-		//arr = config.view.match( /\{\{([^ \{\}])+\}\}/g ),  // /\[([^ \[\]\{\}])+\]/g
-		tmpView = config.view[0].innerHTML,
-		arr = tmpView.match( /\{\{([^ \{\}])+\}\}/g ),
+		//tmpView = config.view[0].innerHTML,
+		tmpView = tempVista,
+		// arr = config.view.match( /\{\{([^ \{\}])+\}\}/g ),  // /\[([^ \[\]\{\}])+\]/g
+		arr = tmpView.match( /\{\{([^ \{\}])+\}\}/g ),  // /\[([^ \[\]\{\}])+\]/g
 		opt = config.opt,
 		txt = '';
 
@@ -62,13 +74,13 @@ fillViews = function( data, view, intervals ){
 		if( intervals !== null && intervals !== undefined ){
 			for( var j=0, jLength = intervals.length; j<jLength; j = j +1 ){
 				step = intervals[ j ];
-				
+
 				if( i === step['init'] ){
 					data[i].customClass = step['class'];
 				}
 				if( i > step['init'] && i >= step['init']+step['interval'] ){
 					if( ( i - step['init'] ) % step['interval'] === 0 ){
-						data[i].customClass = step['class'];			
+						data[i].customClass = step['class'];
 					}
 				}
 			}
